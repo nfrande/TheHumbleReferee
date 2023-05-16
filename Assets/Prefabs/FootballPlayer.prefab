@@ -100,7 +100,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.3}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.34
 --- !u!1 &7576687822434046525
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  distance: -0.01
+  distance: 0.2
   ball: {fileID: 0}
   GoalPosition: {x: 0, y: 0}
   team: 0
@@ -276,6 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 6456201415972818647
+  uniqueID: 7838045351419275566
   updateError: 1
   checkTime: 0.2
