@@ -1,0 +1,132 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class referee : MonoBehaviour
+{
+    InputAction Move, Fire;
+
+    [Header("Movement variables")]
+    [SerializeField]float MaxSpeed;
+    [SerializeField]float Acceleration;
+    [SerializeField]float WalkAnimationTreshold = 0.1f;
+    Vector2 Direction;
+
+    [Header("Components")]
+    [SerializeField]Rigidbody2D rb;
+    [SerializeField]Animator animator;
+    [SerializeField]SpriteRenderer spriteRenderer;
+
+    Timer<float> RedCardTimer;
+    uint RedCardCooldownFrames;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        void ControlInit()
+        {
+            Move = GameManager.instance.input.Player.FindAction("Move");
+            Move.performed += UpdateDirection;
+            Move.canceled += UpdateDirection;
+            Move.started += UpdateDirection;
+            Fire = GameManager.instance.input.Player.FindAction("Fire");
+            RedCardTimer = new FloatTimer(0);
+        }
+
+        ControlInit();
+        
+    }
+
+    
+    // Update is called once per frame
+    void Update()
+    {
+        void DebugUpdate()
+        {
+            Debug.DrawLine(transform.position, transform.position + (Vector3)Direction, Color.cyan, 0.01f);
+
+        }
+        void AnimatorUpdate()
+        {
+            bool moving = rb.velocity.magnitude > WalkAnimationTreshold;
+            if(moving)
+            {
+
+                spriteRenderer.flipX = rb.velocity.x > 0;
+            }
+            animator.SetBool("Moving", moving);
+        }
+        void RedCard()
+        {
+            animator.SetTrigger("RedCard");
+            RedCardTimer = new FloatTimer(0.25f);
+        }
+
+        if(RedCardTimer.CountDown(Time.deltaTime))
+        {
+            if(Fire.WasPressedThisFrame())RedCard();
+        }
+        
+        DebugUpdate();
+        AnimatorUpdate();
+        
+
+    }
+
+    void FixedUpdate()
+    {
+        void Movement()
+        {
+            void ApplyDirection()
+            {
+                rb.velocity += Direction * Acceleration * Time.fixedDeltaTime;
+                rb.velocity = Vector2.ClampMagnitude(rb.velocity, MaxSpeed);
+            }
+            ApplyDirection();
+        }
+
+        if(RedCardTimer.timeLeft <= 0)Movement();
+    }
+
+    void UpdateDirection(InputAction.CallbackContext context)
+    {
+        Direction = context.ReadValue<Vector2>();
+    }
+
+}
+
+public abstract class Timer<T>
+{
+    public T timeLeft {get; protected set;}
+
+    public abstract bool CountDown(T increment);
+    public abstract void AddTime(T amount);
+
+    
+}
+
+public class FloatTimer : Timer<float>
+{
+    public FloatTimer(float initialTime)
+    {
+        timeLeft = initialTime;
+    }
+
+    public override bool CountDown(float increment)
+    {
+        if(timeLeft - increment > 0)
+        timeLeft = timeLeft - increment;
+        else timeLeft = 0;
+        Debug.Log(timeLeft);
+        return timeLeft >= 0;
+    }
+
+    public override void AddTime(float amount)
+    {
+        if(amount < 0)
+        timeLeft =+ amount;
+    }
+}
+
