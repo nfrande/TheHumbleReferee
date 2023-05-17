@@ -39,7 +39,7 @@ public class CharacterDestination : VersionedMonoBehaviour
     {
 
         ai.destination = CalculateDestination();
-        Debug.DrawLine(ball.transform.position, CalculateDestination(),Color.magenta,0.1f);
+        //Debug.DrawLine(ball.transform.position, CalculateDestination(),Color.magenta,0.01f);
     }
 
     Vector2 CalculateDestination()
