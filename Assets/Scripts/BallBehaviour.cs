@@ -6,11 +6,17 @@ public class BallBehaviour : MonoBehaviour
 {
     [Header("Parameters")]
     [SerializeField] string playerTag;
+    [SerializeField] string fenceTag;
     [SerializeField] float kickForce;
     [Space]
     [Header("Components")]
     public Rigidbody2D rb;
 
+    public AudioSource audioUse;
+
+    public AudioClip kickBall;
+
+    public AudioClip ballBounce;
 
     [Header("Visuals")]
     [SerializeField]AnimationCurve airKickArc;
@@ -20,10 +26,17 @@ public class BallBehaviour : MonoBehaviour
         if(other.gameObject.tag == playerTag)
         {
             rb.AddForce((transform.position - other.transform.position).normalized*kickForce, ForceMode2D.Impulse);
+            if(kickBall)audioUse.PlayOneShot(kickBall, 1f);
         }
         if(other.gameObject.tag == "Referee")
         {
             StartCoroutine(AirKick(transform.position * -1f, 1.5f));
+            if(kickBall)audioUse.PlayOneShot(kickBall, 1f);
+        }
+         if(other.gameObject.tag == fenceTag)
+        {
+           
+            if(ballBounce)audioUse.PlayOneShot(ballBounce, 1f);
         }
     }
 
@@ -49,7 +62,8 @@ public class BallBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioUse = gameObject.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame

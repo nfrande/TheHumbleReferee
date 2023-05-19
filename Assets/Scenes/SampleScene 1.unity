@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FootballPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7576687822434046525, guid: c6ed1411da4571448a94953d32060d72, type: 3}
+      propertyPath: m_TagString
+      value: FootballPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 8315567249099927017, guid: c6ed1411da4571448a94953d32060d72, type: 3}
       propertyPath: ball
       value: 
@@ -1122,9 +1126,10 @@ GameObject:
   - component: {fileID: 197260337}
   - component: {fileID: 197260336}
   - component: {fileID: 197260335}
+  - component: {fileID: 197260339}
   m_Layer: 8
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: FootballPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,8 +1184,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: FootballPlayer
+  fenceTag: Fence
   kickForce: 10
   rb: {fileID: 197260335}
+  audioUse: {fileID: 0}
+  kickBall: {fileID: 8300000, guid: b5f9d26ed031d134a9ff2d740905ac36, type: 3}
+  ballBounce: {fileID: 8300000, guid: b0cc99f433afeaf4ebe644c07cab333a, type: 3}
 --- !u!4 &197260338
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1207,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &197260339
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197260334}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &204568120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,8 +1697,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxSpeed: 30
   Acceleration: 20
+  WalkAnimationTreshold: 0.1
   rb: {fileID: 692269492}
   animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!58 &692269491
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19007,6 +19114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FootballPlayer 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1942604815176512367, guid: 6a788a9f4d7211d469fd0e405b45617c, type: 3}
+      propertyPath: m_TagString
+      value: FootballPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 8345251091405607619, guid: 6a788a9f4d7211d469fd0e405b45617c, type: 3}
       propertyPath: uniqueID
       value: 1800301139211063897
@@ -20092,7 +20203,7 @@ GameObject:
   - component: {fileID: 2131022273}
   m_Layer: 6
   m_Name: Fence
-  m_TagString: Untagged
+  m_TagString: Fence
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
