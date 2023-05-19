@@ -25,7 +25,7 @@ public class BallBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(Mathf.Abs(rb.position.x) > FieldInfo.instance.fieldSize.x * 0.5f)
+        if(Mathf.Abs(rb.position.x) > FieldInfo.instance.fieldSize.x * 0.5f || Mathf.Abs(rb.position.y) > FieldInfo.instance.fieldSize.y * 0.5f)
         {
             rb.position = Vector2.zero;
             rb.velocity = Vector2.zero;

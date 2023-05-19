@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7130488956304935341}
   - component: {fileID: 7130488956304935331}
   - component: {fileID: 7130488956304935340}
-  - component: {fileID: 7130488956304935330}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -69,15 +68,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Score goes here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bfaa3ccc6598074fb85ba56839021b7, type: 2}
+  m_sharedMaterial: {fileID: 732414285387798388, guid: 2bfaa3ccc6598074fb85ba56839021b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -136,21 +135,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7130488956304935330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7130488956304935342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &7130488956763726120
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +145,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7130488956763726126}
   - component: {fileID: 7130488956763726125}
-  - component: {fileID: 7130488956763726124}
   - component: {fileID: 7130488956763726115}
   - component: {fileID: 1852485471}
   m_Layer: 0
@@ -215,21 +198,7 @@ MonoBehaviour:
       m_Bindings: []
   PlayerActionMapName: Player
   UIActionMapName: UI
-  playerManager: {fileID: 7130488956763726124}
   uiManager: {fileID: 7130488956763726115}
---- !u!114 &7130488956763726124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7130488956763726120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7429fa63cf5e1c49b39ef5b21eea9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
 --- !u!114 &7130488956763726115
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -110,8 +110,6 @@ public class FootballPlayer : MonoBehaviour
     void OnEnable()
     {
         path = GetComponent<IAstarAI>();
-        PlayerManager manager = GameManager.instance.playerManager;
-        manager.players.Add(this);
         path.onSearchPath += UpdateTarget;
         if(!path.hasPath)UpdateTarget();
 
@@ -119,8 +117,6 @@ public class FootballPlayer : MonoBehaviour
 
     void OnDisable()
     {
-        PlayerManager manager = GameManager.instance.playerManager;
-        manager.players.Add(this);
         path.onSearchPath -= UpdateTarget;
     }
 

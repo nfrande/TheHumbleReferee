@@ -9,10 +9,6 @@ public class GameManager : MonoBehaviour
     [Header("Input")]
     public InputStateManager input;
     public string PlayerActionMapName = "Player", UIActionMapName = "UI";
-
-    [SerializeField]
-    public PlayerManager playerManager;
-
     public UIManager uiManager;
 
     // Start is called before the first frame update
