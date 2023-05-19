@@ -22,6 +22,10 @@ public class referee : MonoBehaviour
     Timer<float> RedCardTimer;
     uint RedCardCooldownFrames;
 
+    public AudioSource audioUse;
+
+    public AudioClip penalize;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,7 @@ public class referee : MonoBehaviour
 
         ControlInit();
         
+        audioUse = gameObject.GetComponent<AudioSource>();
     }
 
     
@@ -109,6 +114,7 @@ public class referee : MonoBehaviour
                 {
                     GameManager.instance.uiManager.addScore(5);
                     player.SetState(FootballPlayerState.Penalized);
+                    audioUse.PlayOneShot(penalize, 0.4f);
                 }
             }
         }

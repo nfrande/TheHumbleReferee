@@ -3803,7 +3803,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press Fire to Start
 
-    Esc to quit'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba4ddc7a179cdfa4a9800b7c152b6e07, type: 2}
   m_sharedMaterial: {fileID: -4365852452048647914, guid: ba4ddc7a179cdfa4a9800b7c152b6e07, type: 2}
