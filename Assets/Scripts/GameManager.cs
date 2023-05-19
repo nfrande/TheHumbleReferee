@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     public InputStateManager input;
     public string PlayerActionMapName = "Player", UIActionMapName = "UI";
 
+    [SerializeField]
+    public PlayerManager playerManager;
+
+    public UIManager uiManager;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +31,8 @@ public class GameManager : MonoBehaviour
             input.SetState(InputStateManager.InputState.game);
         }
     }
+
+
 
     // Update is called once per frame
     void Update()

@@ -45,7 +45,7 @@ public class referee : MonoBehaviour
     {
         void DebugUpdate()
         {
-            Debug.DrawLine(transform.position, transform.position + (Vector3)Direction, Color.cyan, 0.01f);
+            //Debug.DrawLine(transform.position, transform.position + (Vector3)Direction, Color.cyan, 0.01f);
 
         }
         void AnimatorUpdate()
@@ -62,6 +62,7 @@ public class referee : MonoBehaviour
         {
             animator.SetTrigger("RedCard");
             RedCardTimer = new FloatTimer(0.25f);
+            GiveRedCard();
         }
 
         if(RedCardTimer.CountDown(Time.deltaTime))
@@ -71,7 +72,6 @@ public class referee : MonoBehaviour
         
         DebugUpdate();
         AnimatorUpdate();
-        
 
     }
 
@@ -95,6 +95,23 @@ public class referee : MonoBehaviour
         Direction = context.ReadValue<Vector2>();
     }
 
+    void GiveRedCard()
+    {
+        Ray ray = new Ray(transform.position, Direction);
+        Debug.DrawLine(ray.origin,ray.origin + (Vector3)Direction, Color.yellow, 0.2f);
+        RaycastHit2D hit = Physics2D.CircleCast(ray.origin,0.5f,ray.direction,1, Physics.AllLayers ^ LayerMask.GetMask("Referee"));
+        if(hit)
+        {
+            FootballPlayer player;
+            if(hit.transform.TryGetComponent<FootballPlayer>(out player))
+            {
+                if(player.state != FootballPlayerState.Penalized)GameManager.instance.uiManager.addScore(5);
+                player.SetState(FootballPlayerState.Penalized);
+            }
+        }
+        Debug.LogWarning(hit.point);
+
+    }
 }
 
 public abstract class Timer<T>
@@ -128,5 +145,7 @@ public class FloatTimer : Timer<float>
         if(amount < 0)
         timeLeft =+ amount;
     }
+
+    
 }
 
