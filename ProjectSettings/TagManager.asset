@@ -8,6 +8,7 @@ TagManager:
   - Corner
   - Fence
   - Referee
+  - Ball
   layers:
   - Default
   - TransparentFX
