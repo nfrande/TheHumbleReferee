@@ -16,15 +16,19 @@ public class FootballPlayer : MonoBehaviour
     
     public Team team;
     public Role role;
+
     [SerializeField]Targets targets;
     public FootballPlayerState state = FootballPlayerState.StandingStill;
 
     [Header("Components")]
     public Animator animator;
+    [SerializeField]public Collider2D coll, legColl;
 
     const float ballDistance = 0.5f;
 
     public SpriteRenderer spriteRenderer;
+
+    [SerializeField]Color color, penalizedColor;
 
     public void SetState(FootballPlayerState state)
     {
@@ -34,9 +38,16 @@ public class FootballPlayer : MonoBehaviour
 
     void UpdateTarget()
     {
+        void SetColliders(bool enable)
+        {
+            coll.enabled = enable;
+            legColl.enabled = enable;
+        }
         switch(state)
         {
             case FootballPlayerState.Attacking:
+                SetColliders(true);
+                spriteRenderer.color = color;
             switch(role)
             {
                 case Role.Attacking:
@@ -51,6 +62,8 @@ public class FootballPlayer : MonoBehaviour
             
             break;
             case FootballPlayerState.Penalized:
+            spriteRenderer.color = penalizedColor;
+            SetColliders(false);
             path.destination = PenaltyBenchPoint();
             path.canMove = !path.reachedDestination;
             StartCoroutine(PenaltyTimer(10));

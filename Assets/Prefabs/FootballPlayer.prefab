@@ -205,7 +205,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 6
+  maxSpeed: 4
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 7838045351419275566
+  uniqueID: 2834362585535603570
   updateError: 1
   checkTime: 0.2
 --- !u!114 &6940042561704967636
@@ -296,9 +296,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb883f7f8f65d24d9721df2310ed9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  role: 0
   targets:
     BallPosition: {fileID: 0}
     PenaltyBench: {fileID: 0}
   state: 2
   animator: {fileID: 1217907116}
+  coll: {fileID: 3759272319902490660}
+  legColl: {fileID: 409334671}
   spriteRenderer: {fileID: 7576687822384845370}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  penalizedColor: {r: 0.85800004, g: 0.85800004, b: 0.85800004, a: 0.49019608}
