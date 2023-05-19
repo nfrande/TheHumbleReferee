@@ -26,16 +26,17 @@ public class BallBehaviour : MonoBehaviour
         if(other.gameObject.tag == playerTag)
         {
             rb.AddForce((transform.position - other.transform.position).normalized*kickForce, ForceMode2D.Impulse);
+            if(kickBall)audioUse.PlayOneShot(kickBall, 1f);
         }
         if(other.gameObject.tag == "Referee")
         {
             StartCoroutine(AirKick(transform.position * -1f, 1.5f));
-            audioUse.PlayOneShot(kickBall, 1f);
+            if(kickBall)audioUse.PlayOneShot(kickBall, 1f);
         }
          if(other.gameObject.tag == fenceTag)
         {
            
-            audioUse.PlayOneShot(ballBounce, 1f);
+            if(ballBounce)audioUse.PlayOneShot(ballBounce, 1f);
         }
     }
 
