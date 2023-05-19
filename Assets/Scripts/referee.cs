@@ -105,8 +105,11 @@ public class referee : MonoBehaviour
             FootballPlayer player;
             if(hit.transform.TryGetComponent<FootballPlayer>(out player))
             {
-                if(player.state != FootballPlayerState.Penalized)GameManager.instance.uiManager.addScore(5);
-                player.SetState(FootballPlayerState.Penalized);
+                if(player.state != FootballPlayerState.Penalized)
+                {
+                    GameManager.instance.uiManager.addScore(5);
+                    player.SetState(FootballPlayerState.Penalized);
+                }
             }
         }
         Debug.LogWarning(hit.point);

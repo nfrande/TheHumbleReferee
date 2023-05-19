@@ -11,6 +11,7 @@ public class BallBehaviour : MonoBehaviour
     [Space]
     [Header("Components")]
     public Rigidbody2D rb;
+    public Collider2D coll;
 
     public AudioSource audioUse;
 
@@ -42,9 +43,10 @@ public class BallBehaviour : MonoBehaviour
 
     IEnumerator AirKick(Vector2 force, float time)
     {
-        gameObject.layer = 10;
+        gameObject.layer = 9;
         rb.velocity = force * 0.5f;
         float inversedivider = 1/time;
+        
         Vector2 graphicposition;
         for(float elapsed = 0; elapsed <= time; elapsed += Time.deltaTime)
         {

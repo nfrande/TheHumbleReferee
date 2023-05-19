@@ -18,8 +18,9 @@ public class FootballPlayer : MonoBehaviour
     public FootballPlayerState state = FootballPlayerState.StandingStill;
 
     [Header("Components")]
-    public Rigidbody rb;
     public Animator animator;
+
+    public SpriteRenderer spriteRenderer;
 
     public void SetState(FootballPlayerState state)
     {
@@ -37,7 +38,7 @@ public class FootballPlayer : MonoBehaviour
             break;
             case FootballPlayerState.Penalized:
             path.destination = targets.PenaltyBench.position;
-            path.canMove = true;
+            path.canMove = !path.reachedDestination;
             StartCoroutine(PenaltyTimer(10));
             break;
             case FootballPlayerState.StandingStill:
@@ -49,6 +50,7 @@ public class FootballPlayer : MonoBehaviour
 
     void Update()
     {
+        spriteRenderer.flipX = path.steeringTarget.x > path.position.x;
         UpdateTarget();
     }
 

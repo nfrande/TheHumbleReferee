@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7576687822384845369}
   - component: {fileID: 7576687822384845370}
   - component: {fileID: 409334671}
+  - component: {fileID: 1217907116}
   m_Layer: 0
   m_Name: FootballPlayer
   m_TagString: FootballPlayer
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a4f17554e98880140a70b3761b27b9dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,6 +102,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.3}
   serializedVersion: 2
   m_Radius: 0.34
+--- !u!95 &1217907116
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576687822384845361}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdb4336ca242a01468bf3e4a1f214926, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7576687822434046525
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,13 +134,13 @@ GameObject:
   - component: {fileID: 7576687822434046524}
   - component: {fileID: 3046086546031321937}
   - component: {fileID: 3809540884462912780}
-  - component: {fileID: 8315567249099927017}
   - component: {fileID: 3759272319902490660}
   - component: {fileID: 7128210220868853455}
   - component: {fileID: 488027025}
+  - component: {fileID: 6940042561704967636}
   m_Layer: 7
   m_Name: FootballPlayer
-  m_TagString: Untagged
+  m_TagString: FootballPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,23 +231,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 1
   constrainInsideGraph: 1
---- !u!114 &8315567249099927017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7576687822434046525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ce51fc0316aa9409ddd0ca785d6c77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  distance: 0.2
-  ball: {fileID: 0}
-  GoalPosition: {x: 0, y: 0}
-  team: 0
 --- !u!58 &3759272319902490660
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -257,7 +262,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -279,3 +284,21 @@ MonoBehaviour:
   uniqueID: 7838045351419275566
   updateError: 1
   checkTime: 0.2
+--- !u!114 &6940042561704967636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576687822434046525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb883f7f8f65d24d9721df2310ed9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+    BallPosition: {fileID: 0}
+    PenaltyBench: {fileID: 0}
+  state: 2
+  animator: {fileID: 1217907116}
+  spriteRenderer: {fileID: 7576687822384845370}
