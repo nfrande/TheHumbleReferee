@@ -613,7 +613,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1121,33 +1121,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7915267875807223811, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915267875807223868, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915267875905017617, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
-      propertyPath: m_Radius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915267875905017617, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915267875905017617, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.29
-      objectReference: {fileID: 0}
     - target: {fileID: 7915267875905017619, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
       propertyPath: m_Name
       value: Referee
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915267875905017619, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7915267875905017623, guid: 0971dd6cb66a0c54db24b6f18ae722fb, type: 3}
       propertyPath: m_RootOrder
@@ -1312,6 +1288,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1917390537}
     m_Modifications:
+    - target: {fileID: 6749404787399861637, guid: db14cf24638214e479a5bc90f96e203f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749404787399861637, guid: db14cf24638214e479a5bc90f96e203f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[6].m_Data
+      value: 
+      objectReference: {fileID: 21300000, guid: 72a259579918a8c459ee848414506f2b, type: 3}
+    - target: {fileID: 6749404787399861637, guid: db14cf24638214e479a5bc90f96e203f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749404787399861637, guid: db14cf24638214e479a5bc90f96e203f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[6].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749404787399861637, guid: db14cf24638214e479a5bc90f96e203f, type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_TileSpriteIndex
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6749404787399861752, guid: db14cf24638214e479a5bc90f96e203f, type: 3}
       propertyPath: m_Name
       value: Fence
@@ -19578,6 +19574,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b955b3a8d8fe74294cb8fa4626f398, type: 3}
+--- !u!1 &1852485466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7130488956763726120, guid: 6c9c5964f61e97c4ab558558d02d1cfd, type: 3}
+  m_PrefabInstance: {fileID: 654227663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1852485471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852485466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d6b21c62cd099458827e987369bc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldSize: {x: 20, y: 10}
+  team1Goal: {x: 20, y: 0}
+  team2Goal: {x: -20, y: 0}
+  BallPosition: {fileID: 0}
 --- !u!1001 &1862561870
 PrefabInstance:
   m_ObjectHideFlags: 0
