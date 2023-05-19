@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FootballPlayer
   - Corner
+  - Fence
   layers:
   - Default
   - TransparentFX
