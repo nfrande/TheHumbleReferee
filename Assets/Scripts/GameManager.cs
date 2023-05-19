@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,18 @@ public class GameManager : MonoBehaviour
             input.SetState(InputStateManager.InputState.game);
         }
     }
+
+    public void GameOver()
+    {
+                SceneManager.LoadScene("GameOverScreen", LoadSceneMode.Single);
+    }
+
+    public void NewGame()
+    {
+        uiManager.Reset();
+        SceneManager.LoadScene("SampleScene 1", LoadSceneMode.Single);
+    }
+
 
 
 

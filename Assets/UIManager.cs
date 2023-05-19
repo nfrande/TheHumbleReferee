@@ -25,6 +25,19 @@ public class UIManager : MonoBehaviour
         if(healthText)healthText.text = $"Health: {health.ToString()}";
     }
 
+    public void SetHUD(bool state)
+    {
+        if(scoreText)scoreText.enabled = state;
+        if(healthText)healthText.enabled = state;
+    }
+
+    public void Reset()
+    {
+        score = 0;
+        health = 3;
+        UpdateUI();
+    }
+
     public void addScore(int amount)
     {
         score += amount;

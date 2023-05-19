@@ -220,6 +220,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d204c751e9be44788355560e7a655d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager:
+    actions: {fileID: -944628639613478452, guid: fde0cd313e829914caf0aea664bc1548, type: 3}
+    Player:
+      m_Name: 
+      m_Id: 
+      m_Asset: {fileID: 0}
+      m_Actions: []
+      m_Bindings: []
+    UI:
+      m_Name: 
+      m_Id: 
+      m_Asset: {fileID: 0}
+      m_Actions: []
+      m_Bindings: []
 --- !u!4 &555714542
 Transform:
   m_ObjectHideFlags: 0

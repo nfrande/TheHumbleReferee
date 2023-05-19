@@ -23,7 +23,7 @@ public class ScoreGoal : MonoBehaviour
         if(other.gameObject.tag == ballTag)
         {
             Debug.Log("Game Over");
-            SceneManager.LoadScene("GameOverScreen");
+            GameManager.instance.GameOver();
         }
 
     }

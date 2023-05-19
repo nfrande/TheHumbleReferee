@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.EditorTools;
-using UnityEditor.ShortcutManagement;
+//using UnityEditor.EditorTools;
+//using UnityEditor.ShortcutManagement;
 
 public class FieldInfo : MonoBehaviour
 {
@@ -37,44 +37,41 @@ public class FieldInfo : MonoBehaviour
         Gizmos.DrawCube(team2Goal, Vector3.one*0.25f);
     }
 
-    void OnToolGUI(EditorWindow window)
-    {
-        fieldSize = Handles.PositionHandle(fieldSize, Quaternion.Euler(0,0,0));
-    }
 }
 
-[EditorTool("Soccer field tool", typeof(FieldInfo))]
-public class FieldTool : EditorTool, IDrawSelectedHandles
-{
-    void OnEnable()
-    {
-
-    }
-
-    void OnDisable()
-    {
-
-    }
-
-    public void OnDrawHandles()
-    {
-        FieldInfo[] infos = Selection.GetFiltered<FieldInfo>(SelectionMode.TopLevel);
-        if(infos.Length > 0)
-        {
-            infos[0].fieldSize = Handles.PositionHandle(infos[0].fieldSize, Quaternion.Euler(0,0,0));
-        }
-    }
-
-    [Shortcut("Enable soccer field tool",typeof(SceneView),KeyCode.B)]
-    public void Activate()
-    {
-        if(Selection.GetFiltered<FieldInfo>(SelectionMode.TopLevel).Length > 0)
-        Debug.Log("FieldTool");
-    }
-
-    public override void OnToolGUI(EditorWindow window)
-    {
-        Handles.BeginGUI();
-        Handles.EndGUI();
-    }
-}
+//[EditorTool("Soccer field tool", typeof(FieldInfo))]
+//public class FieldTool : EditorTool, IDrawSelectedHandles
+//{
+//    void OnEnable()
+//    {
+//
+//    }
+//
+//    void OnDisable()
+//    {
+//
+//    }
+//
+//    public void OnDrawHandles()
+//    {
+//        FieldInfo[] infos = Selection.GetFiltered<FieldInfo>(SelectionMode.TopLevel);
+//        if(infos.Length > 0)
+//        {
+//            infos[0].fieldSize = Handles.PositionHandle(infos[0].fieldSize, Quaternion.Euler(0,0,0));
+//        }
+//    }
+//
+//    [Shortcut("Enable soccer field tool",typeof(SceneView),KeyCode.B)]
+//    public void Activate()
+//    {
+//        if(Selection.GetFiltered<FieldInfo>(SelectionMode.TopLevel).Length > 0)
+//        Debug.Log("FieldTool");
+//    }
+//
+//    public override void OnToolGUI(EditorWindow window)
+//    {
+//        Handles.BeginGUI();
+//        Handles.EndGUI();
+//    }
+//}
+//
