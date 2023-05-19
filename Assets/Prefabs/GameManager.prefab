@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 7130488956763726125}
   - component: {fileID: 7130488956763726124}
   - component: {fileID: 7130488956763726115}
+  - component: {fileID: 1852485471}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -244,6 +245,24 @@ MonoBehaviour:
   ScoreExponentOffset: 2
   scoreText: {fileID: 7130488956304935340}
   healthText: {fileID: 0}
+--- !u!114 &1852485471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7130488956763726120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d6b21c62cd099458827e987369bc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldSize: {x: 19.029514, y: 8.904807}
+  team1Goal: {x: 10, y: 0}
+  team2Goal: {x: -10, y: 0}
+  team1Bench: {x: 8, y: 7}
+  team2Bench: {x: -8, y: 7}
+  BallPosition: {fileID: 0}
 --- !u!1 &7130488957166733790
 GameObject:
   m_ObjectHideFlags: 0

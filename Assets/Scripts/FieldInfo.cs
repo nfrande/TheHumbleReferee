@@ -10,7 +10,12 @@ public class FieldInfo : MonoBehaviour
     public static FieldInfo instance;
     public Vector2 fieldSize;
 
+    [Header("Goals")]
     public Vector2 team1Goal, team2Goal;
+    [Header("PenaltyBenches")]
+    public Vector2 team1Bench, team2Bench;
+
+    public Transform BallPosition;
     // Start is called before the first frame update
     void Awake()
     {

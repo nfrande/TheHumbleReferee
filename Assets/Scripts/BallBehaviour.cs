@@ -22,6 +22,15 @@ public class BallBehaviour : MonoBehaviour
     [Header("Visuals")]
     [SerializeField]AnimationCurve airKickArc;
     [SerializeField]Transform graphicTransform;
+
+    void Update()
+    {
+        if(Mathf.Abs(rb.position.x) > FieldInfo.instance.fieldSize.x * 0.5f)
+        {
+            rb.position = Vector2.zero;
+            rb.velocity = Vector2.zero;
+        }
+    }   
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == playerTag)
@@ -66,11 +75,5 @@ public class BallBehaviour : MonoBehaviour
     {
         audioUse = gameObject.GetComponent<AudioSource>();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

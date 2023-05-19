@@ -14,11 +14,15 @@ public class FootballPlayer : MonoBehaviour
         public Transform BallPosition, PenaltyBench;       
     }
     
+    public Team team;
+    public Role role;
     [SerializeField]Targets targets;
     public FootballPlayerState state = FootballPlayerState.StandingStill;
 
     [Header("Components")]
     public Animator animator;
+
+    const float ballDistance = 0.5f;
 
     public SpriteRenderer spriteRenderer;
 
@@ -33,11 +37,21 @@ public class FootballPlayer : MonoBehaviour
         switch(state)
         {
             case FootballPlayerState.Attacking:
-            path.destination = targets.BallPosition.position;
-            path.canMove = true;
+            switch(role)
+            {
+                case Role.Attacking:
+                path.destination = positionToKickBallToGoal();
+                path.canMove = true;
+                break;
+                case Role.Defending:
+                path.destination = BetweenBallAndGoal();
+                path.canMove = true;
+                break;
+            }
+            
             break;
             case FootballPlayerState.Penalized:
-            path.destination = targets.PenaltyBench.position;
+            path.destination = PenaltyBenchPoint();
             path.canMove = !path.reachedDestination;
             StartCoroutine(PenaltyTimer(10));
             break;
@@ -54,6 +68,43 @@ public class FootballPlayer : MonoBehaviour
         UpdateTarget();
     }
 
+    Vector3 positionToKickBallToGoal()
+    {
+        Vector3 BallPosition = FieldInfo.instance.BallPosition.position;
+        switch(team)
+        {
+            case Team.team1:
+            return BallPosition + (BallPosition-(Vector3)FieldInfo.instance.team2Goal).normalized*ballDistance;
+            case Team.team2:
+            return BallPosition + (BallPosition-(Vector3)FieldInfo.instance.team1Goal).normalized*ballDistance;
+        }
+        return Vector3.zero;
+    }
+
+    Vector3 BetweenBallAndGoal()
+    {
+        Vector3 BallPosition = FieldInfo.instance.BallPosition.position;
+        switch(team)
+        {
+            case Team.team1:
+            return (Vector3)FieldInfo.instance.team1Goal - ((Vector3)FieldInfo.instance.team1Goal -BallPosition)*0.5f;
+            case Team.team2:
+            return (Vector3)FieldInfo.instance.team2Goal - ((Vector3)FieldInfo.instance.team2Goal -BallPosition)*0.5f;
+        }
+        return Vector3.zero;
+    }
+
+    Vector3 PenaltyBenchPoint()
+    {
+        switch(team)
+        {
+            case Team.team1:
+            return FieldInfo.instance.team1Bench;
+            case Team.team2:
+            return FieldInfo.instance.team2Bench;
+        }
+        return Vector3.zero;
+    }
 
 
     void OnEnable()
@@ -79,4 +130,9 @@ public class FootballPlayer : MonoBehaviour
         SetState(FootballPlayerState.Attacking);
     }
 
+}
+
+public enum Role
+{
+    Attacking, Defending
 }
